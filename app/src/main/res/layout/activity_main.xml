@@ -41,6 +41,13 @@
             android:gravity="center"/>
 
         <TextView
+            android:id="@+id/tv_scalex"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+        <TextView
             android:id="@+id/tv_superscript"
             android:layout_width="wrap_content"
             android:layout_height="120dp"

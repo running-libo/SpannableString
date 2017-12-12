@@ -10,6 +10,7 @@ import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
+import android.text.style.ScaleXSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.SubscriptSpan;
@@ -54,17 +55,28 @@ public class SpanUtils {
         return spannableString;
     }
 
+    public static SpannableString getScaleXSpan(){
+        SpannableString spannableString = new SpannableString("媳妇你长胖了");
+        ScaleXSpan scaleXSpan = new ScaleXSpan(2);
+        spannableString.setSpan(scaleXSpan,0,spannableString.length(),Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        return spannableString;
+    }
+
     public static SpannableString getSuperscriptSpan(){
         SpannableString spannableString = new SpannableString("刚在北京望京买了套1202m的房子");
         SuperscriptSpan superscriptSpan = new SuperscriptSpan();
+        RelativeSizeSpan sizeSpan = new RelativeSizeSpan(0.7f);
         spannableString.setSpan(superscriptSpan,12,13,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(sizeSpan,12,13,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         return spannableString;
     }
 
     public static SpannableString getSubscriptSpan(){
         SpannableString spannableString = new SpannableString("水分子化学式为H20");
         SubscriptSpan subscriptSpan = new SubscriptSpan();
+        RelativeSizeSpan sizeSpan = new RelativeSizeSpan(0.7f);
         spannableString.setSpan(subscriptSpan,8,9,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(sizeSpan,8,9,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         return spannableString;
     }
 
@@ -120,9 +132,11 @@ public class SpanUtils {
     }
 
     public static SpannableString getURLSpan(){
-        SpannableString spannableString = new SpannableString("我的简书首页");
-        URLSpan urlSpan = new URLSpan("http://www.jianshu.com/u/347890c1ed1e");
-        spannableString.setSpan(urlSpan,0,spannableString.length(),Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        SpannableString spannableString = new SpannableString("打电话，发短信，发邮件，打开网页");
+        spannableString.setSpan(new URLSpan("tel:10086"), 0, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new URLSpan("smsto:10086"), 4, 7, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new URLSpan("mailto:88888888@qq.com"), 8, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new URLSpan("http://www.jianshu.com"), 12, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return spannableString;
     }
 

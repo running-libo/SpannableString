@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvClick;
     @Bind(R.id.tv_url)
     TextView tvUrl;
+    @Bind(R.id.tv_scalex)
+    TextView tvScalex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         tvStrikethrough.setText(SpanUtils.getStrikethroughSpan());
 
         tvUnderline.setText(SpanUtils.getUnderlineSpan());
+
+        tvScalex.setText(SpanUtils.getScaleXSpan());
 
         tvSuperscript.setText(SpanUtils.getSuperscriptSpan());
 
